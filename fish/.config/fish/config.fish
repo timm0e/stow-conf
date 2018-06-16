@@ -14,7 +14,7 @@ set -gx ANDROID_HVPROTO ddm
 set -gx GOPATH $HOME/Apps/go/
 
 # User info
-export MP_FULLNAME=Maxr1998
+export MPW_FULLNAME=Maxr1998
 
 set GITHUB_USER Maxr1998
 
