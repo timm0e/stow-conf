@@ -13,8 +13,17 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+" Co-op coding
 Plugin 'FredKSchott/CoVim'
+
+" TypeScript Syntax
 Plugin 'HerringtonDarkholme/yats.vim'
+
+" Markdown support
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
+" Generic auto-complete
 Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
@@ -22,6 +31,7 @@ filetype plugin indent on
 
 " Max's Customisations
 set number
+set nofoldenable
 set nofixendofline
 set tabstop=4 " Make tabs appear 4 spaces wide
 
