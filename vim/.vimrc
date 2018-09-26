@@ -6,26 +6,22 @@ set encoding=utf-8
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
+set shell=/bin/bash
+
 filetype off
-" set the runtime path to include Vundle and initialize
+
+" Set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
 Plugin 'VundleVim/Vundle.vim'
 
-" Co-op coding
-Plugin 'FredKSchott/CoVim'
-
-" TypeScript Syntax
-Plugin 'HerringtonDarkholme/yats.vim'
-
-" Markdown support
-Plugin 'godlygeek/tabular'
+Plugin 'herrbischoff/cobalt2.vim'        " Cobalt 2
+Plugin 'flazz/vim-colorschemes'          " More color schemes
+Plugin 'Yggdroot/indentLine'             " Leading spaces
+Plugin 'FredKSchott/CoVim'               " Co-op coding
+Plugin 'HerringtonDarkholme/yats.vim'    " TypeScript Syntax
+Plugin 'godlygeek/tabular'               " Markdown support
 Plugin 'plasticboy/vim-markdown'
-
-" Generic auto-complete
-Plugin 'Valloric/YouCompleteMe'
-
 call vundle#end()
 filetype plugin indent on
 
@@ -43,4 +39,12 @@ autocmd FileType html setlocal shiftwidth=2
 autocmd FileType json setlocal shiftwidth=2
 autocmd FileType yaml setlocal shiftwidth=2
 
-colorscheme desert
+" PLUGIN CONFIGURATION
+" Color scheme
+colorscheme molokai_dark
+set termguicolors
+
+" indentLine
+let g:indentLine_enabled = 0
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar = '.'
