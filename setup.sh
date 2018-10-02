@@ -46,7 +46,8 @@ if count $argv > /dev/null
         stow -D "$pkg"
     end
 else
-    for pkg in *
+    for dir in */
+        set pkg (echo $dir | sed 's|/$||')
         echo "CURRENTLY LINKING $pkg"
         stow "$pkg"
     end
