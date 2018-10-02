@@ -22,19 +22,23 @@ if count $argv > /dev/null
         sudo sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
         sudo pacman -Syu
         sudo pacman -S --needed \
-            fish gnu-netcat jq reflector rsync \
-            i3-wm i3blocks \
-            gnome-common gnome-control-center gnome-terminal gnome-tweaks \
+            fish jq openbsd-netcat reflector rsync \
+            i3-wm \
+            gnome-control-center gnome-terminal gnome-tweaks \
             fontconfig cantarell-fonts gsfonts pango terminus-font ttf-dejavu ttf-fira-code ttf-roboto \
             xorg-xinput xorg-font-util xorg-font-utils \
             feh mpv steam steam-native-runtime thefuck
     end
+    colorecho "Installing custom config package"
+    set stow_root "$PWD"
+    cd i3/.config/i3/arch_pkg/
+    makepkg -fci
+    cd $stow_root
     colorecho
-
     colorecho "Install manually afterwards:"
     colorecho "- https://aur.archlinux.org/package-query.git"
-    colorecho "- https://aur.archlinux.org/yaourt.git"
-    colorecho "yaourt -S --needed --noconfirm discord google-chrome i3lock-color-git j4-dmenu-desktop luckybackup \\"
+    colorecho "- https://aur.archlinux.org/yay.git"
+    colorecho "yay -S --needed --noconfirm discord google-chrome i3blocks-git i3lock-color-git j4-dmenu-desktop luckybackup \\"
     colorecho "materia-gtk-theme numix-circle-icon-theme-git numix-icon-theme-git ttf-font-icons"
     colorecho
     sleep 3
@@ -62,6 +66,5 @@ else
         colorecho "CURRENTLY LINKING $pkg"
         stow -t ~ "$pkg"
     end
-    colorecho "Execute: sudo stow -d i3/.config/i3/ -t /etc/systemd/system/ systemd_units"
 end
 
