@@ -54,13 +54,13 @@ if count $argv > /dev/null
    and [ $argv[1] = "teardown" ]
     for pkg in *
         colorecho "CURRENTLY UNLINKING $pkg"
-        stow -D "$pkg"
+        stow -D -t ~ "$pkg"
     end
 else
     for dir in */
         set pkg (echo $dir | sed 's|/$||')
         colorecho "CURRENTLY LINKING $pkg"
-        stow "$pkg"
+        stow -t ~ "$pkg"
     end
     colorecho "Execute: sudo stow -d i3/.config/i3/ -t /etc/systemd/system/ systemd_units"
 end
